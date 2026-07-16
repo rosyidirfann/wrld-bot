@@ -60,7 +60,7 @@ const daftarUndangan = new Map();
 // ✅ TAMPILAN ROLE
 // ============================================================
 const embedRole = new EmbedBuilder()
-    .setTitle('📋 DAFTAR ROLE WRLD SCIENTIST')
+    .setTitle('📋 DAFTAR ROLE SATU HAL')
     .setDescription(
         'Pilih kategori di bawah untuk mendapatkan role sesuai data diri kamu.\n\n' +
         '⚠️ **Aturan Penting:**\n' +
@@ -68,8 +68,8 @@ const embedRole = new EmbedBuilder()
         '• Pilih ulang → role lama otomatis terganti.\n' +
         '• Pilih sesuai kenyataan ya!'
     )
-    .setColor('#551779')
-    .setFooter({ text: 'WRLD SCIENTIST • Sistem Pengaturan Role' });
+    .setColor('#ffffff')
+    .setFooter({ text: 'SATU HAL • Sistem Pengaturan Role' });
 
 function buatMenuUtama() {
     return new ActionRowBuilder().addComponents(
@@ -193,8 +193,8 @@ client.on('guildMemberAdd', async anggota => {
     } catch {}
 
     const pesanEmbed = new EmbedBuilder()
-        .setColor('#8323af')
-        .setTitle('━━━━━━━━━━ • WRLD || Tracker • ━━━━━━━━━━')
+        .setColor('#ffffff')
+        .setTitle('━━━━━━━━━━ • Satu Hal || Tracker • ━━━━━━━━━━')
         .setDescription(
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
             `➤ ➜ Welcome    : ${anggota}\n` +
@@ -203,7 +203,7 @@ client.on('guildMemberAdd', async anggota => {
             `➤ ➜ Total Member : **${server.memberCount}**\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
         )
-        .setFooter({ text: '━━━━━━━━━━ • WRLD SYSTEM • ━━━━━━━━━━' })
+        .setFooter({ text: '━━━━━━━━━━ • SATU HAL SYSTEM • ━━━━━━━━━━' })
         .setTimestamp();
 
     const saluranLog = server.channels.cache.get(CHANNEL_ID_LOG) || channelSambut;
@@ -222,7 +222,7 @@ client.on('interactionCreate', async interaksi => {
             await interaksi.editReply(`🏓 **Pong!**\n📶 Bot: **${Date.now() - mulai} ms**\n💓 WebSocket: **${client.ws.ping} ms**`);
         } else if (interaksi.commandName === 'info') {
             await interaksi.reply({ embeds: [new EmbedBuilder()
-                .setColor('#551779')
+                .setColor('#ffffff')
                 .setTitle('🤖 Info Bot WRLD Scientist')
                 .setThumbnail(client.user.displayAvatarURL())
                 .addFields(
@@ -238,11 +238,11 @@ client.on('interactionCreate', async interaksi => {
             ]});
         } else if (interaksi.commandName === 'katakataharini') {
             const acak = quotes[Math.floor(Math.random() * quotes.length)];
-            await interaksi.reply({ embeds: [new EmbedBuilder().setColor('#8323af').setDescription(`💬 *"${acak}"*`)] });
+            await interaksi.reply({ embeds: [new EmbedBuilder().setColor('#ffffff').setDescription(`💬 *"${acak}"*`)] });
         } else if (interaksi.commandName === 'serverinfo') {
             const g = interaksi.guild;
             await interaksi.reply({ embeds: [new EmbedBuilder()
-                .setColor('#551779')
+                .setColor('#ffffff')
                 .setTitle(`📊 Info Server: ${g.name}`)
                 .setThumbnail(g.iconURL({ dynamic: true }))
                 .addFields(
@@ -259,7 +259,7 @@ client.on('interactionCreate', async interaksi => {
             const sasaran = interaksi.options.getUser('user') || interaksi.user;
             const anggota = interaksi.guild.members.cache.get(sasaran.id);
             await interaksi.reply({ embeds: [new EmbedBuilder()
-                .setColor('#8323af')
+                .setColor('#ffffff')
                 .setTitle(`👤 Info: ${sasaran.tag}`)
                 .setThumbnail(sasaran.displayAvatarURL({ dynamic: true }))
                 .addFields(
